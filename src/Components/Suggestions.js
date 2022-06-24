@@ -9,12 +9,12 @@ function Suggestions({suggestionsList, ingredientsList, addSuggestion, removeSug
     
 
     return(
-        <Segment padded size="large">
-            <Header as="h1" textAlign="center">Enjoy your FEAST!</Header>
+        <Segment padded size="large" className="backColor">
+            <Header as="h1" textAlign="center" className="headerColor">Enjoy your FEAST!</Header>
             <Card.Group itemsPerRow={5} centered stackable>
                 {allSuggestionsDisplay}
             </Card.Group>
-            <Header as="h2" textAlign="center">Got an idea? Add it to the FEAST!</Header>
+            <Header as="h2" textAlign="center" className="headerColor">Got an idea? Add it to the FEAST!</Header>
             <SuggestionForm ingredientsList={ingredientsList} addSuggestion={addSuggestion}/>
         </Segment>
     )

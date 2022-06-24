@@ -10,8 +10,8 @@ function Ingredients({ingredientsList, ingredientsSuggestions, filterSuggestions
     // const ingredientsDisplay = ingredientsList.map((ingredient) => <IngredientCard ingredient={ingredient} key={ingredient.id} ingredientsSuggestions={ingredientsSuggestions}/>)
 
     return (
-        <Segment padded size="large">
-            <Header as="h1" textAlign="center">Click on an ingredient for ideas!</Header>
+        <Segment padded size="large" className="backColor">
+            <Header as="h1" textAlign="center" className="headerColor">Click on an ingredient for ideas!</Header>
             <Card.Group itemsPerRow={5} centered stackable>
                 {/* {ingredientsDisplay} */}
                 {nestedSuggestionsDisplay}

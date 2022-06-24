@@ -6,14 +6,14 @@ import Suggestions from './Suggestions'
 function Home({ingredientsList, suggestionsList, ingredientsSuggestions, addSuggestion, removeSuggestion, upVote, filterSuggestions}) {
     return (
         <div>
-            <div>
+            <div className='homeContainer'>
                 <img src="https://images.unsplash.com/photo-1577003833154-a92bbd63ae13?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="landing-page-image" />
-            </div>
-            <div>
-                <Header as="h1" size='huge' textAlign='center'>
-                FEAST
-                </Header>
-                <Header as="h3" textAlign='center'>Fresh ideas to reinvent your excess food into new meals so you can waste not, want not, and FEAST</Header>
+                <div className='centeredText'>
+                    <Header as="h1" textAlign='center' className='title'>
+                    FE<span className='whiteText'>A</span>ST
+                    </Header>
+                    <Header as="h3" textAlign='center' className='titleSub'>Fresh ideas to reinvent your excess food into new meals so you can waste not, want not, and FEAST</Header>
+                </div>
             </div>
             <div>
                 {/* Give it a go! Click on an ingredient below to see some ideas! */}

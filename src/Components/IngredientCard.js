@@ -11,9 +11,9 @@ function IngredientCard({ingredient, suggestions, filterSuggestions}) {
     }
 
     return (
-        <Card onClick={() => handleIngClick(ingredient)} >
+        <Card onClick={() => handleIngClick(ingredient)} className="ingButton" >
             <CardContent textAlign="center">
-                <CardHeader textAlign="center" >{ingredient.name}</CardHeader>
+                <Card.Header textAlign="center">{ingredient.name}</Card.Header>
             </CardContent>
         </Card>
     )

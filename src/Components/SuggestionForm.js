@@ -53,12 +53,12 @@ function SuggestionForm({ingredientsList, addSuggestion}) {
     return (
         <Grid centered>
             <Grid.Column style={{maxWidth: 1000}}>
-                <Segment>
+                <Segment className='sugColor'>
                     <Form onSubmit={handleSubmit}>
                         <Form.Input label="What's the name of your idea?" name="title" value={newFormData.title} onChange={handleChange} placeholder="Suggestion Name" ></Form.Input>
                         <Form.Select label="Which ingredient is your idea for?" name="ingredient_name" value={newFormData.ingredient_name} onChange={handleClick} placeholder="Ingredient" options={options} ></Form.Select>
                         <Form.TextArea label="Tell us why it's a great idea!" name="suggestion_content" value={newFormData.suggestion_content} onChange={handleChange} placeholder="Short description here"></Form.TextArea>
-                        <Form.Button type='submit'>Submit Your Idea!</Form.Button>
+                        <Form.Button type='submit' color='pink' fluid >Submit Your Idea!</Form.Button>
                     </Form>  
                 </Segment>
             </Grid.Column>
