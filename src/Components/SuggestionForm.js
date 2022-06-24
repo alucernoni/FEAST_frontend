@@ -9,12 +9,13 @@ function SuggestionForm({ingredientsList, addSuggestion}) {
     const initialFormData = {
         title: " ",
         suggestion_content: " ",
-        // ingredient id???
+        ingredient_name: " "
     }
 
     const [newFormData, setNewFormData] = useState(initialFormData)
 
     const handleChange = (event) => {
+        console.log("onchange event", event)
         setNewFormData({
             ...newFormData,
             [event.target.name]: event.target.value
@@ -22,11 +23,20 @@ function SuggestionForm({ingredientsList, addSuggestion}) {
         console.log("new form data", newFormData)
     }
 
+    const handleClick = (e) => {
+        console.log("click e:", e)
+        setNewFormData({
+            ...newFormData,
+            "ingredient_name": e.target.outerText
+        })
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault()
         const NewSuggestion = {
             title: newFormData.title,
-            suggestion_content: newFormData.suggestion_content
+            suggestion_content: newFormData.suggestion_content,
+            ingredient_name: newFormData.ingredient_name
         }
         const config = {
             method: "POST",
@@ -46,7 +56,7 @@ function SuggestionForm({ingredientsList, addSuggestion}) {
                 <Segment>
                     <Form onSubmit={handleSubmit}>
                         <Form.Input label="What's the name of your idea?" name="title" value={newFormData.title} onChange={handleChange} placeholder="Suggestion Name" ></Form.Input>
-                        {/* <Form.Select label="Which ingredient is your idea for?" placeholder="Ingredient" options={options}></Form.Select> */}
+                        <Form.Select label="Which ingredient is your idea for?" name="ingredient_name" value={newFormData.ingredient_name} onChange={handleClick} placeholder="Ingredient" options={options} ></Form.Select>
                         <Form.TextArea label="Tell us why it's a great idea!" name="suggestion_content" value={newFormData.suggestion_content} onChange={handleChange} placeholder="Short description here"></Form.TextArea>
                         <Form.Button type='submit'>Submit Your Idea!</Form.Button>
                     </Form>  
