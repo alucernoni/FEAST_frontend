@@ -27,29 +27,29 @@ function SuggestionCard({suggestion, removeSuggestion, upVote}) {
     }
 
     return (
-        <div>
             <Card>
                 <CardContent>
                     <CardHeader textAlign="center">{suggestion.title}</CardHeader>
                     <CardDescription>{suggestion.suggestion_content}</CardDescription>
-                    <Button.Group>
-                        <Button as="div" labelPosition="left" style={{marginTop:20}}>
-                            <Label as="a" basic pointing="right">
-                                {suggestion.votes}
-                            </Label>
-                            <Button icon>
-                                <Icon name="heart" value={suggestion.id} onClick={handleLike}></Icon>
+                    <Card.Content extra>
+                        <Button.Group>
+                            <Button as="div" labelPosition="left" style={{marginTop:20}}>
+                                <Label as="a" basic pointing="right">
+                                    {suggestion.votes}
+                                </Label>
+                                <Button icon>
+                                    <Icon name="heart" value={suggestion.id} onClick={handleLike}></Icon>
+                                </Button>
                             </Button>
-                        </Button>
-                        <Button value={suggestion.id} onClick={handleDeleteClick} negative floated="right" compact style={{marginTop:20}}>Delete Suggestion</Button>
-                    </Button.Group>
+                            <Button value={suggestion.id} onClick={handleDeleteClick} negative floated="right" compact style={{marginTop:20}}>Delete Suggestion</Button>
+                        </Button.Group>
+                    </Card.Content>
                     {/* <Button as="div" labelPosition="left">
 
                     </Button>
                     <Button value={suggestion.id} onClick={handleDeleteClick} negative floated="right" compact style={{marginTop:20}}>Delete Suggestion</Button> */}
                 </CardContent>
             </Card>
-        </div>
     )
 }
 

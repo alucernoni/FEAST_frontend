@@ -6,12 +6,14 @@ function App() {
   
   const [ingredientListData, setIngredientListData] = useState([])
   const [suggestionListData, setSuggestionListData] = useState([])
+  const [ingredientsSuggestions, setIngredientsSuggestions] = useState([])
 
   useEffect(() => {
     fetch("http://localhost:9292/ingredients")
     .then(resp => resp.json())
     .then(setIngredientListData)
   }, [])
+
 
   useEffect(() => {
     fetch("http://localhost:9292/suggestions")
@@ -25,6 +27,12 @@ function App() {
       })
     })
     .then(setSuggestionListData)
+  }, [])
+
+  useEffect(() => {
+    fetch("http://localhost:9292/")
+    .then(r => r.json())
+    .then(setIngredientsSuggestions)
   }, [])
 
   function addSuggestion(NewSuggestion) {
@@ -46,8 +54,12 @@ function App() {
     setSuggestionListData(updatedSuggestionVote) 
   }
 
+  function filterSuggestions(suggestions) {
+    setSuggestionListData(suggestions)
+  }
+
   return (
-    <Home ingredientsList={ingredientListData} suggestionsList={suggestionListData} addSuggestion={addSuggestion} removeSuggestion={removeSuggestion} upVote={upVote}/>
+    <Home ingredientsList={ingredientListData} suggestionsList={suggestionListData} ingredientsSuggestions={ingredientsSuggestions} addSuggestion={addSuggestion} removeSuggestion={removeSuggestion} upVote={upVote} filterSuggestions={filterSuggestions}/>
   );
 }
 
