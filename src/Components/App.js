@@ -19,11 +19,17 @@ function App() {
     .then(setSuggestionListData)
   }, [])
 
-  console.log("ingredients list data:", ingredientListData)
-  console.log("suggestions data fetch:", suggestionListData)
+  function addSuggestion(NewSuggestion) {
+    setSuggestionListData([...suggestionListData, NewSuggestion])
+  }
+
+  function removeSuggestion(id) {
+    const updatedSuggestionsList = suggestionListData.filter(suggestion => suggestion.id !== id)
+    setSuggestionListData(updatedSuggestionsList)
+  }
 
   return (
-    <Home ingredientsList={ingredientListData} suggestionsList={suggestionListData}/>
+    <Home ingredientsList={ingredientListData} suggestionsList={suggestionListData} addSuggestion={addSuggestion} removeSuggestion={removeSuggestion}/>
   );
 }
 

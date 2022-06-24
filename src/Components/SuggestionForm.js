@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { Form, Grid, Segment } from 'semantic-ui-react'
 
-function SuggestionForm({ingredientsList}) {
+function SuggestionForm({ingredientsList, addSuggestion}) {
 
     const options = ingredientsList.map((ingredient) => {return {key: `${ingredient.id}`, text: `${ingredient.name}`, value: `${ingredient.name}`}})
     console.log("options:", options)
@@ -33,7 +33,10 @@ function SuggestionForm({ingredientsList}) {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(NewSuggestion)
         }
-        
+        fetch("http://localhost:9292/suggestions", config)
+        .then(r => r.json())
+        .then(addSuggestion)
+        .then(setNewFormData(initialFormData))
     }
 
 
