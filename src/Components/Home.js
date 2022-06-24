@@ -18,7 +18,7 @@ function Home({ingredientsList, suggestionsList}) {
                 Give it a go! Click on an ingredient below to see some ideas!
             </div>
             <Ingredients ingredientsList={ingredientsList}/>
-            <Suggestions suggestionsList={suggestionsList}/>
+            <Suggestions suggestionsList={suggestionsList} ingredientsList={ingredientsList}/>
         </div>
     )
 }

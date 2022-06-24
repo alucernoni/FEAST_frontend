@@ -1,22 +1,15 @@
 import React from "react";
+import { Card, CardContent, CardDescription, CardHeader, Header } from "semantic-ui-react";
 
-function SuggestionCard() {
+function SuggestionCard({suggestion}) {
     return (
         <div>
-            <div>
-                placeholder card
-                <ul>
-                    <li>
-                        Title
-                    </li>
-                    <li>
-                        Description
-                    </li>
-                    <li>
-                        vote
-                    </li>
-                </ul>
-            </div>
+            <Card>
+                <CardContent>
+                    <CardHeader textAlign="center">{suggestion.title}</CardHeader>
+                    <CardDescription>{suggestion.suggestion_content}</CardDescription>
+                </CardContent>
+            </Card>
         </div>
     )
 }

@@ -1,18 +1,13 @@
 import React from "react";
+import { Card, CardContent, CardHeader, Header } from "semantic-ui-react";
 
-function IngredientCard() {
+function IngredientCard({ingredient}) {
     return (
-        <div>
-            placeholder card
-            <ul>
-                <li>
-                    <img src="TBD" alt="ingredient photo" />
-                </li>
-                <li>
-                    Ingredient Name
-                </li>
-            </ul>
-        </div>
+        <Card>
+            <CardContent textAlign="center">
+                <CardHeader textAlign="center">{ingredient.name}</CardHeader>
+            </CardContent>
+        </Card>
     )
 }
 
