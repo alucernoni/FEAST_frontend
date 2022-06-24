@@ -2,7 +2,7 @@ import React from 'react'
 import Ingredients from './Ingredients'
 import Suggestions from './Suggestions'
 
-function Home({ingredientsList, suggestionsList, addSuggestion, removeSuggestion}) {
+function Home({ingredientsList, suggestionsList, addSuggestion, removeSuggestion, upVote}) {
     return (
         <div>
             <div>
@@ -18,7 +18,7 @@ function Home({ingredientsList, suggestionsList, addSuggestion, removeSuggestion
                 Give it a go! Click on an ingredient below to see some ideas!
             </div>
             <Ingredients ingredientsList={ingredientsList}/>
-            <Suggestions suggestionsList={suggestionsList} ingredientsList={ingredientsList} addSuggestion={addSuggestion} removeSuggestion={removeSuggestion}/>
+            <Suggestions suggestionsList={suggestionsList} ingredientsList={ingredientsList} addSuggestion={addSuggestion} removeSuggestion={removeSuggestion} upVote={upVote}/>
         </div>
     )
 }

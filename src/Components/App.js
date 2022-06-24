@@ -16,6 +16,14 @@ function App() {
   useEffect(() => {
     fetch("http://localhost:9292/suggestions")
     .then(resp => resp.json())
+    .then(resp => {
+      return resp.map((mappedResp) => {
+        if (mappedResp.votes === null) {
+          mappedResp.votes = 0
+        }
+        return mappedResp
+      })
+    })
     .then(setSuggestionListData)
   }, [])
 
@@ -28,8 +36,18 @@ function App() {
     setSuggestionListData(updatedSuggestionsList)
   }
 
+  function upVote(id) {
+    const updatedSuggestionVote = suggestionListData.map(suggestion => {
+      if (suggestion.id === id) {
+        suggestion.votes = suggestion.votes +1
+      }
+      return suggestion
+    })
+    setSuggestionListData(updatedSuggestionVote) 
+  }
+
   return (
-    <Home ingredientsList={ingredientListData} suggestionsList={suggestionListData} addSuggestion={addSuggestion} removeSuggestion={removeSuggestion}/>
+    <Home ingredientsList={ingredientListData} suggestionsList={suggestionListData} addSuggestion={addSuggestion} removeSuggestion={removeSuggestion} upVote={upVote}/>
   );
 }
 
